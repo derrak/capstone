@@ -4,7 +4,7 @@
 | Hours expected -> |     8     |     8     |     8     | Work on Cap after apply for internships |     8     |     8     |
 |           8a - 9a |Project setup, find course|           |           |                                         |           |           |
 |          9a - 10a |Video lesson and practice|           |           |                                         |           |           |
-|         10a - 11a |           |           |           |                                         |           |           |
+|         10a - 11a |Video lesson and practice|           |           |                                         |           |           |
 |         11a - 12p |           |           |           |                                         |           |           |
 |          12p - 1p |           |           |           |                                         |           |           |
 |           1p - 2p |           |           |           |                                         |           |           |
