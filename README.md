@@ -9,8 +9,8 @@ Timesheet
 |          9a - 10a |Video lesson and practice|           |           |                                         |           |           |
 |         10a - 11a |Video lesson and practice|           |           |                                         |           |           |
 |         11a - 12p |Video lesson and practice|           |           |                                         |           |           |
-|          12p - 1p |           |           |           |                                         |           |           |
-|           1p - 2p |           |           |           |                                         |           |           |
+|          12p - 1p |      Lunch     |           |           |                                         |           |           |
+|           1p - 2p |Video lesson and practice|           |           |                                         |           |           |
 |           2p - 3p |           |           |           |                                         |           |           |
 |           3p - 4p |           |           |           |                                         |           |           |
 |           4p - 5p |           |           |           |                                         |           |           |
