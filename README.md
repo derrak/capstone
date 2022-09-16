@@ -13,6 +13,6 @@ Timesheet
 |           1p - 2p |Video lesson and practice|           |           |                                         |           |           |
 |           2p - 3p |Video lesson and practice|           |           |                                         |           |           |
 |           3p - 4p |Video lesson and practice|           |           |                                         |           |           |
-|           4p - 5p |           |           |           |                                         |           |           |
+|           4p - 5p |Video lesson and practice|           |           |                                         |           |           |
 
 Course selected: Build Data Visualizations with D3.js & Firebase https://www.udemy.com/course/build-data-uis-with-d3-firebase/
