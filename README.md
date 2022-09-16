@@ -11,7 +11,7 @@ Timesheet
 |         11a - 12p |Video lesson and practice|           |           |                                         |           |           |
 |          12p - 1p |      Lunch     |           |           |                                         |           |           |
 |           1p - 2p |Video lesson and practice|           |           |                                         |           |           |
-|           2p - 3p |           |           |           |                                         |           |           |
+|           2p - 3p |Video lesson and practice|           |           |                                         |           |           |
 |           3p - 4p |           |           |           |                                         |           |           |
 |           4p - 5p |           |           |           |                                         |           |           |
 
