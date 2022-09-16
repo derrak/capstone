@@ -1,21 +1,5 @@
-const data = [
-  {width: 200, height: 100, fill: '#a633e0'},
-  {width: 200, height: 100, fill: '#a633e0'}
-]
+   ES6 arrow functions
 
-const svg = d3.select('svg'); //select svg element
-
-//store selected rect element within svg element as a constant
-  const rect = svg.select('rect') 
-    .data(data) //data method; pass in data (in this case a const created above)
-    //.attr('width', 200)
-    .attr('width', function(d, i, n){return d.width}) //data is refered to as 'd'
-    .attr('width', (d, i, n) => {console.log(this)}) //data is refered to as 'd'
-    .attr('height', function(d, i, n){return d.height}) // i is array index (optional)
-    .attr('fill', function(d, i, n){return d.fill});  // n is current selection (optional)
-
-//    ES6 arrow functions
-/*
 Arrow functions effect what 'this' is bound to:
 Without arrow functions, 'this' refers to the current element. 
 When using arrow functions, refer to current element by referencing 'n[i]';
@@ -49,12 +33,16 @@ TO COMBAT THIS, with arrow functions, you can refer to n[i] instead of 'this'
     If return value is on the same line, 
     you don't need the 'return' keyword or the curley brackets.
     The return is implicit:
-    .attr('width', (d) => d.width} 
+    .attr('width', (d) => d.width)
 
     If function goes to multiple lines, you need curleys and the return keyword
 
+    If only passing one parameter into the function; don't need perens around it. 
 
+    .attr('width', d => d.width)
 
+    .attr('width', function(d){return d.width}) 
+    .attr('width', (d) => {return d.width})
+    .attr('width', (d) => d.width) // If return value is on the same line, don't need 'return' or {}
+    .attr('width', d => d.width) // If passing only 1 parameter, don't need the ()
 
-
-*/
