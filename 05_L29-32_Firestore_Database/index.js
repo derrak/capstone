@@ -34,31 +34,31 @@ const yAxisGroup = graph.append('g');
 //HOW TO CONNECT TO FIRESTORE DATABASE
 //'dishes' refers to the collection w/in the firebase db
 // .get is a ASYNC request to get the docs; it returns a promise
-// .then is fired when the promised data is returned
-// firebase returns the data 'results' differently, so it has to 
-// be processed more than the local json file, so it's passsed in as 'results'
-db.collection('dishes').get().then(result => {
+// .then is fired when the .get() action is complete
+// firebase returns the data 'response' differently, so it has to 
+// be processed more than the local json file, so it's passsed in as 'response'
+db.collection('dishes').get().then(response => {
 
 // Create new array for data
 // Get into the 'response' object, then docs within, 
 // then cycle through the docs and 
 // push the data into the data array.
 // The .data function extracts the data we want out of the result.docs object
-  var data = [];
-  result.docs.forEach(doc => {
-    data.push(doc.data()); // gets the data from each doc and pushes it into the data array
+  var dataArray = [];
+  response.docs.forEach(doc => {
+    dataArray.push(doc.data()); // .data gets the data from each doc and pushes it into the data array
   })
 
 
 //===========EXTENTS=======================
   // Find min, max, and extent of y values
   // use these values in the scales
-  const yMin = d3.min(data, d => d.orders);
-  // cycles through data input, returns min value for d.*
-  const yMax = d3.max(data, d => d.orders);
-    // cycles through data input, returns max value for d.*
-  const yExtent = d3.extent(data, d => d.orders);
-    // cycles through data input, returns array of [min,max] values
+  const yMin = d3.min(dataArray, d => d.orders);
+  // cycles through dataArray input, returns min value for d.*
+  const yMax = d3.max(dataArray, d => d.orders);
+    // cycles through dataArray input, returns max value for d.*
+  const yExtent = d3.extent(dataArray, d => d.orders);
+    // cycles through dataArray input, returns array of [min,max] values
 
  //===========SCALES=======================
   // Create linear scale for y values 
@@ -71,7 +71,7 @@ db.collection('dishes').get().then(result => {
    // .map creates a new array full of the
    //  unique name values of each object in the data set
    // it uses .lenght of array to know what to divide into range max
-    .domain(data.map(object => object.name))
+    .domain(dataArray.map(object => object.name))
     .range([0,500]) // [] with output min and max
     .paddingInner(0.2) // padding between bars
     .paddingOuter(0.2); // padding on left and right of bar group
@@ -83,7 +83,7 @@ db.collection('dishes').get().then(result => {
 //===========DATA JOINS=======================
   // join data to rects in graph group
   const rects = graph.selectAll('rect')
-    .data(data)
+    .data(dataArray)
 
   // apply attrs to rects in DOM (there's only 1)
   rects
