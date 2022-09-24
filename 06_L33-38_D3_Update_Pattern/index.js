@@ -117,9 +117,37 @@ const update = (dataArray) => {
 //===========RETRIEVE DATA FROM FIRESTORE=======================
 let dataArray = [];
 
-// onSnapshot lestens for changes in database
+// onSnapshot listens for changes in database
+
 db.collection('dishes').onSnapshot(response => {
+ 
+  // For each response object that's returned...
+  // Create var 'doc' that's an object that will contain 
+  // all objects from change.doc.data AND the doc's id
   response.docChanges().forEach(change => {
+
+    const doc = {...change.doc.data(), id: change.doc.id};
+
+    console.log(doc);
+
+    switch (change.type) {
+      case 'added':
+        dataArray.push(doc);
+        break;
+
+      case 'modified':
+        const index = dataArray.findIndex(item => item.id == doc.id);
+        dataArray[index] = doc;
+        break;
+
+      case 'removed':
+        dataArray = dataArray.filter(item => item.id !== doc.id);
+        break;
+      default: 
+        break;
+    }
+
+
   });
 
   update(dataArray); 
