@@ -122,14 +122,15 @@ let dataArray = [];
 db.collection('dishes').onSnapshot(response => {
  
   // For each response object that's returned...
-  // Create var 'doc' that's an object that will contain 
-  // all objects from change.doc.data AND the doc's id
   response.docChanges().forEach(change => {
-
+    
+    // Create var 'doc' object that will contain 
+    // properties from  change.doc.data AND the doc's id
     const doc = {...change.doc.data(), id: change.doc.id};
 
     console.log(doc);
 
+    //switch case evaluates the change.type property
     switch (change.type) {
       case 'added':
         dataArray.push(doc);
@@ -146,10 +147,7 @@ db.collection('dishes').onSnapshot(response => {
       default: 
         break;
     }
-
-
   });
-
   update(dataArray); 
 });
 
