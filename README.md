@@ -14,7 +14,7 @@ Timesheet
 |           1p - 2p | Video lesson and practice  |                           |                         |           |           |                                         |           |           |
 |           2p - 3p | Video lesson and practice  |                           |                         |Video lesson and practice|           |                                         |           |           |
 |           3p - 4p | Video lesson and practice  | Video lesson and practice |                         |Video lesson and practice|           |                                         |           |           |
-|           4p - 5p | Video lesson and practice  | Video lesson and practice |                         |           |           |                                         |           |           |
+|           4p - 5p | Video lesson and practice  | Video lesson and practice |                         |Video lesson and practice|           |                                         |           |           |
 |           5p - 6p |                            |                           |                         |           |           |                                         |           |           |
 |           6p - 7p |                            |                           |                         |           |           |                                         |           |           |
 |           7p - 8p |                            |                           |                         |           |           |                                         |           |           |
