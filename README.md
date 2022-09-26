@@ -1,5 +1,8 @@
 # capstone
 
+Name of Project: Data visualizer with D3. Allow users to input data via a form or csv and select which graph type is produced with that data.
+
+
 
 Timesheet
 |                   |   Friday                  |   Saturday                 |   Sunday                |   Friday                |   Saturday              |   Friday  |                  Monday                 |  Tuesday  | Wednesday |
