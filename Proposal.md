@@ -11,6 +11,7 @@
 - JavaScript-D3.js is a javaScript library
 - HTML, CSS
 - React, for the frontend
+- Firestore for data storage
 
 ## If you finish developing the minimum viable product (MVP) with time to spare, what will you work on next? Describe these features here: Be specific.
 - Expand/ add graph types user can choose from
