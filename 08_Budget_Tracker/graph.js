@@ -25,10 +25,24 @@ const arcPath = d3.arc()
   .outerRadius(dimensions.radius)
   .innerRadius(dimensions.radius / 2);
 
-const update = (data) => {
+//=============Legend Setup================
+//Legend is called in the update function as it will change
+const legendGroup = svg.append('g')
+  .attr('transform', `translate(${dimensions.width + 40}, 10)`);
 
+const legend = d3.legendColor()
+  .shape('circle')
+  .shapePadding(10)
+  .scale(color);
+
+
+const update = (data) => {
   // update color scale domain
   color.domain(data.map(d => d.name)); // create a array filled with the names of all items in data array
+
+  // update and call legend
+  legendGroup.call(legend)
+  legendGroup.selectAll('text').attr('fill', 'white');
 
   // join pie data to path elements
   const paths = graph.selectAll('path')
@@ -37,13 +51,15 @@ const update = (data) => {
   // Remove exit selection
   paths.exit()
     .transition().duration(750)
-      .attrTween('d', arcTweenExit)
+    .attrTween('d', arcTweenExit)
     .remove();
 
   // Update elements curently in graph;
   // Only need to update the arcPath; all other attrs are pased in when it was created
   paths
-    .attr('d', arcPath) // passes 'd' (a data object) to arcPath and retuns the path string 
+    .attr('d', arcPath) // passes 'd' (a data object) to arcPath and retuns the path string
+    .transition().duration(750)
+    .attrTween('d', arcTweenUpdate)
 
   paths.enter()
     .append('path')
@@ -53,8 +69,9 @@ const update = (data) => {
     .attr('stroke-width', 3)
     .attr('fill', d => color(d.data.name)) // name is now within the data object of each d object (once ran through .data(pie())
     // .each allows running a function on each d
-    // adds a _current property, set to d to each d
-    .each(function(d){this._current = d}) // .each allows running a function on each d
+    // the function adds a _current property, set to d to each d
+    // acts a a snapshop of current positions, which is needed for transitions
+    .each(function (d) { this._current = d })
     .transition().duration(750)
     .attrTween('d', arcTweenEnter);
 }
@@ -117,6 +134,14 @@ const arcTweenExit = (d) => {
 }
 
 // use function keyword to all ow use of 'this'
-function arcTweenUpdate(d){
+function arcTweenUpdate(d) {
+  //interpolate between current and new positions
+  var i = d3.interpolate(this._current, d);
+  //update current prop with new updated data
+  this._current = d;
+
+  return function (t) {
+    return arcPath(i(t));
+  }
 
 }
