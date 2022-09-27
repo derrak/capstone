@@ -41,11 +41,12 @@
             <button class="btn-large pink white-text">Add item</button>
           </div>
           <div class="input-field center">
-            <p class="red-text" id="error">test</p>
+            <p class="red-text" id="error"></p>
           </div>
           </span>
         </div>
       </form>
+      </div>
       <div class="col s12 m5 push-m1">
         <div class="canvas">
 
@@ -55,6 +56,25 @@
 
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <!-- Compiled and minified JavaScript -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <script>   
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyD5kjg__jNExJpjvwsC_ENZjy3QdBguc5g",
+        authDomain: "d3-udemy-ad59c.firebaseapp.com",
+        projectId: "d3-udemy-ad59c",
+        storageBucket: "d3-udemy-ad59c.appspot.com",
+        messagingSenderId: "622018994172",
+        appId: "1:622018994172:web:a9014b14efcf1bb7899c79",
+        timestampsInSnapshots: true
+      };
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+       //const settings={ timestampsInSnapshots: true };
+    </script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="index.js"></script>
     <script src="graph.js"></script>
