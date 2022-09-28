@@ -35,6 +35,18 @@ const legend = d3.legendColor()
   .shapePadding(10)
   .scale(color);
 
+  //=============ToolTip Setup================
+  const tip = d3.tip()
+    .attr('class', 'tip card')
+    .html(d => {
+      let content = `<div class="name">${d.data.name}</div>`;
+      content += `<div class="cost">${d.data.cost}</div>`;
+      content += `<div class="delete">Click slice to delete</div>`;
+      return content;
+    });
+
+    graph.call(tip); //apply toolTip to graph group
+
 
 const update = (data) => {
   // update color scale domain
@@ -74,6 +86,16 @@ const update = (data) => {
     .each(function (d) { this._current = d })
     .transition().duration(750)
     .attrTween('d', arcTweenEnter);
+
+    //=============Handle Event Listeners================
+  graph.selectAll('path')
+    .on('mouseover', (d, i, n) => { // on mouseover, fires this function, which fires two functions within
+      tip.show(d, n[i]) // data and reference to current element n[i]
+      handleMouseOver(d, i, n)})
+    .on('mouseout', (d, i, n) => {
+      tip.hide()
+      handleMouseOut(d, i, n)})
+    .on('click', handleClick)
 }
 
 let data = [];
@@ -144,4 +166,27 @@ function arcTweenUpdate(d) {
     return arcPath(i(t));
   }
 
+}
+
+//===========EVENT HANDLERS=======================
+// d=data of path event triggered 
+// n=array of element in the current selection
+// i= index of current element hovering over 
+// named the transitions 'changeSliceFill' so they don't interfear with other transitions
+const handleMouseOver = (d, i, n) =>{ 
+  //console.log(n[i]) //tells us details of element hovered over
+  d3.select(n[i]) // selects current element, wraps in d3 wrapper; get access to d3 methods
+    .transition('changeSliceFill').duration(300)
+      .attr('fill', '#fff')
+}
+
+const handleMouseOut = (d, i, n) =>{ 
+  d3.select(n[i]) // selects current element, wraps in d3 wrapper; get access to d3 methods
+    .transition('changeSliceFill').duration(300)
+      .attr('fill', color(d.data.name)) //d.data.name referrs to the data passed through the pi function
+}
+
+const handleClick = (d) => {
+  const id = d.data.id;
+  db.collection('expenses').doc(id).delete()
 }
