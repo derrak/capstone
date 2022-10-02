@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import D3Chart from './D3Chart';
 
+
 export default class ChartWrapper extends Component {
   componentDidMount(){
     new D3Chart(this.refs.chart)
@@ -10,7 +11,7 @@ export default class ChartWrapper extends Component {
   }
 
 }
-Using Hooks
+//Using Hooks
 // import React, { useRef, useState, useEffect } from 'react';
 // import D3Chart from './D3Chart';
  
