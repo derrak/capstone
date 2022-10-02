@@ -20,10 +20,10 @@ export default class D3Chart {
           .attr('width', 50)
           .attr('height', d => d.age * 10)
           .attr('fill', d => {
-            if (d.name == "Tony") {
+            if (d.age > 10) {
               return 'red'
             }
-            else {return 'gray'}
+            return 'gray'
           })
     })
   }
