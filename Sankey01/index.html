@@ -1,0 +1,66 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <title>Sankey Diagram</title>
+  <style>
+    .link {
+      fill: none;
+      stroke: #000;
+      stroke-opacity: .2;
+    }
+    .link:hover {
+      stroke-opacity: .5;
+    }
+    </style>
+</head>
+
+<body class="indigo">
+  <header class="indigo darken-1 section">
+    <h2 class="center white-text">Sankey Diagram</h2>
+    <p class="flow-text grey-text center text-lighten-2">Sub text</p>
+  </header>
+
+  <div class="container section">
+      <div class="col s12 m5 push-m1">
+        <div class="canvas">
+
+        </div>
+      </div>
+    <!-- </div> -->
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <script>   
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyD5kjg__jNExJpjvwsC_ENZjy3QdBguc5g",
+        authDomain: "d3-udemy-ad59c.firebaseapp.com",
+        projectId: "d3-udemy-ad59c",
+        storageBucket: "d3-udemy-ad59c.appspot.com",
+        messagingSenderId: "622018994172",
+        appId: "1:622018994172:web:a9014b14efcf1bb7899c79",
+        timestampsInSnapshots: true
+      };
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+       //const settings={ timestampsInSnapshots: true };
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/sankey.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script> -->
+    <script src="index.js"></script>
+    <script src="graph.js"></script>
+    <script src="sankeyChart.js"></script>
+</body>
+
+</html>

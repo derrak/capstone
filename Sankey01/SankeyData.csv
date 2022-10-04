@@ -1,0 +1,13 @@
+source,target,value
+Group Instruction,Satisfaction with Instructors,0.874
+Personalized Instruction,Satisfaction with Instructors,0.426
+Personalized Instruction,Satisfaction with Curriculum,0.706
+Technology,Satisfaction with Curriculum,0.503
+Lesson Quality,Satisfaction with Curriculum,0.788
+Lesson Quality,Satisfaction with Company,0.761
+Epicodus Image,Satisfaction with Curriculum,0.407
+Epicodus Image,Satisfaction with Company,0.632
+Career Services,Satisfaction with Company,0.55
+Satisfaction with Instructors,Overall Satisfaction,0.728
+Satisfaction with Curriculum,Overall Satisfaction,0.883
+Satisfaction with Company,Overall Satisfaction,0.402
