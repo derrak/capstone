@@ -30,7 +30,18 @@
   </style>
 </head>
 
-<body class="indigo">
+<body class="blue-grey lighten-5">
+  <header class="blue-grey lighten-3">
+    <h2 class="center white-text">Sankey Diagram</h2>
+    <p class="flow-text grey-text center text-lighten-2">Sub text</p>
+  </header>
+
+  <div class="container section">
+    <div class="col s12">
+      <div class="canvas">
+
+      </div>
+    </div>
 
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://unpkg.com/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
@@ -40,7 +51,7 @@
     // set the dimensions and margins of the graph
     var margin = {top: 10, right: 10, bottom: 10, left: 10},
         width = 900 - margin.left - margin.right,
-        height = 300 - margin.top - margin.bottom;  
+        height = 500 - margin.top - margin.bottom;  
     
     // format variables
     var formatNumber = d3.format(",.0f"), // zero decimal places
@@ -48,7 +59,7 @@
         color = d3.scaleOrdinal(d3.schemeCategory10);
       
     // append the svg object to the body of the page
-    var svg = d3.select("#graph").append("svg")
+    var svg = d3.select('.canvas').append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
       .append("g")
@@ -148,17 +159,7 @@
       
     </script>
 
-  <header class="indigo darken-1 section">
-    <h2 class="center white-text">Sankey Diagram</h2>
-    <p class="flow-text grey-text center text-lighten-2">Sub text</p>
-  </header>
 
-  <div class="container section">
-    <div class="col s12 m5 push-m1">
-      <div id="graph">
-
-      </div>
-    </div>
 
 
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
